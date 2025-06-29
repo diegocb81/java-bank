@@ -46,6 +46,7 @@ public abstract class Wallet {
     }
 
     public List<MoneyAudit> getFinancialTransactions() {
-        return money.stream().flatMap(m -> m.getHistory().stream()).toList();
+        return money.stream().flatMap(m -> m.getHistory().stream())
+                .toList();
     }
 }
