@@ -3,15 +3,20 @@ package br.com.dio.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
+//import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @EqualsAndHashCode
-@ToString
+//@ToString
 @Getter
 public class Money {
+
+@Override
+public String toString() {
+    return String.format("Money[histórico: %d eventos]", history.size());
+}
 
     private final List<MoneyAudit> history = new ArrayList<>();
 

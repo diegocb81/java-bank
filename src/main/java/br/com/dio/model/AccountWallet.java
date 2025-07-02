@@ -9,6 +9,13 @@ import static br.com.dio.model.BankService.ACCOUNT;
 @Getter
 public class AccountWallet extends Wallet{
 
+@Override
+public String toString() {
+    return String.format("Conta criada com sucesso! Pix: %s | Saldo: R$ %d",
+        pix.isEmpty() ? "não informado" : pix.get(0),
+        getFunds());
+}
+
     private final List<String> pix;
 
     public AccountWallet(final List<String> pix) {

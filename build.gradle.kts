@@ -1,11 +1,6 @@
 plugins {
     id("java")
-}
-
-configurations {
-    compileOnly {
-        extendsFrom(configurations.annotationProcessor.get())
-    }
+    id("application") 
 }
 
 group = "br.com.dio"
@@ -16,13 +11,15 @@ repositories {
 }
 
 dependencies {
-
-    compileOnly("org.projectlombok:lombok:1.18.28")
-
-    annotationProcessor("org.projectlombok:lombok:1.18.28")
+    compileOnly("org.projectlombok:lombok:1.18.34")
+    annotationProcessor("org.projectlombok:lombok:1.18.34")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+application {
+    mainClass.set("br.com.dio.Main") 
 }
 
 tasks.test {

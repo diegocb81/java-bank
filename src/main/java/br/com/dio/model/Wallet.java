@@ -1,7 +1,7 @@
 package br.com.dio.model;
 
 import lombok.Getter;
-import lombok.ToString;
+//import lombok.ToString;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
-@ToString
+//@ToString
 public abstract class Wallet {
 
     @Getter
@@ -48,5 +48,13 @@ public abstract class Wallet {
     public List<MoneyAudit> getFinancialTransactions() {
         return money.stream().flatMap(m -> m.getHistory().stream())
                 .toList();
+    }
+
+    @Override
+    public String toString() {
+        return "Wallet{" +
+                "service=" + service +
+                ", money=" + money.size() / 100 + "," + money.size() % 100 +
+                '}';
     }
 }
